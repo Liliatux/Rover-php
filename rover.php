@@ -4,11 +4,12 @@ class Rover {
 	private $x;
 	private $y;
 	private $o;
+	private $arrayO = ['N', 'E', 'S', 'W'];
 
 	public function __construct($x, $y, $o) {
 		$this->x = $x;
 		$this->y = $y;
-		$this->o = $o;
+		$this->o = $this->arrayO[$o];
 	}
 
 	public function getPosition() {

@@ -29,10 +29,10 @@ class Rover {
 	}
 
 	public function move($forward){
-		$tabX = ($forward) ? [0, 1, 0, -1] : [0, -1, 0, 1];
-		$tabY = ($forward) ? [1, 0, -1, 0] : [-1, 0, 1, 0];
-		$this->x += $tabX[$this->orientation];
-		$this->y += $tabY[$this->orientation];
+		$tabX = [0, 1, 0, -1];
+		$tabY = [1, 0, -1, 0];
+		$this->x += ($forward) ? $tabX[$this->orientation] : $tabX[$this->orientation]*(-1);
+		$this->y += ($forward) ? $tabY[$this->orientation] : $tabY[$this->orientation]*(-1);
 	}
 
 	public function turnRight(){

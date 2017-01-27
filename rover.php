@@ -9,7 +9,7 @@ class Rover {
 	public function __construct($x, $y, $o) {
 		$this->x = $x;
 		$this->y = $y;
-		$this->o = $this->arrayO[$o];
+		$this->o = $o;
 	}
 
 	public function getPosition() {
@@ -21,74 +21,58 @@ class Rover {
 	}
 
 	public function forward(){
-		if($this->o === 'S'){
+		if($this->o === 2){
 			$this->y --;
 		}
 
-		if($this->o === 'N'){
+		if($this->o === 0){
 			$this->y ++;
 		}
 
-		if($this->o === 'W'){
+		if($this->o === 3){
 			$this->x --;
 		}
 
-		if($this->o === 'E'){
+		if($this->o === 1){
 			$this->x ++;
 		}
 	}
 
 	public function backward(){
-		if($this->o === 'S'){
+		if($this->o === 2){
 			$this->y ++;
 		}
 
-		if($this->o === 'N'){
+		if($this->o === 0){
 			$this->y --;
 		}
 
-		if($this->o === 'W'){
+		if($this->o === 3){
 			$this->x ++;
 		}
 
-		if($this->o === 'E'){
+		if($this->o === 1){
 			$this->x --;
 		}
 	}
 
 	public function turnRight(){
-		if($this->o === 'N'){
-			$this->o = 'E';
+		if($this->o < 3){
+			$this->o ++;
 		}
 
-		elseif($this->o === 'E'){
-			$this->o = 'S';
-		}
-
-		elseif($this->o === 'S'){
-			$this->o = 'W';
-		}
-
-		elseif($this->o === 'W'){
-			$this->o = 'N';
+		elseif($this->o === 3){
+			$this->o = 0;
 		}
 	}
 
 	public function turnLeft(){
-		if($this->o === 'N'){
-			$this->o = 'W';
+		if($this->o > 0){
+			$this->o --;
 		}
 
-		elseif($this->o === 'W'){
-			$this->o = 'S';
-		}
-
-		elseif($this->o === 'S'){
-			$this->o = 'E';
-		}
-
-		elseif($this->o === 'E'){
-			$this->o = 'N';
+		elseif($this->o === 0){
+			$this->o = 3;
 		}
 	}
 
